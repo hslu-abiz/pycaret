@@ -47,8 +47,8 @@ jobs:
         run: |
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           git_branch=${GITHUB_REF#refs/heads/}
-          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:${docker_version} .
+          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch} .
           
       - name: Publish docker image
         run: |
-          docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:${docker_version}
+          docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}
