@@ -53,7 +53,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: andrinbuerli
           password: 20faf4365ef992932db81451fcc46edcc9186e9c
       
       - name: Publish docker image
