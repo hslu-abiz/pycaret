@@ -51,7 +51,7 @@ jobs:
       
       - name: Login to docker.pkg.github.com
         run: |
-          docker login https://docker.pkg.github.com -u andrinbuerli --password 20faf4365ef992932db81451fcc46edcc9186e9c
+          docker login https://docker.pkg.github.com -u andrinbuerli --password ed164e309990c9b8089fa43cd582ccdeadc17366 
           
       - name: Publish docker image
         run: |
