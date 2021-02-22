@@ -1,11 +1,7 @@
-FROM python:3.7-slim
+FROM ubuntu:18.04
 
-WORKDIR /app
+WORKDIR /pycaret
 
-ADD . /app
+ADD . /pycaret
 
-RUN apt-get update && apt-get install -y libgomp1
-
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-CMD pytest
+COPY ./TARGET /pycaret
