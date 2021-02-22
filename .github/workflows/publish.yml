@@ -54,7 +54,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          password: 20faf4365ef992932db81451fcc46edcc9186e9c
       
       - name: Publish docker image
         run: |
