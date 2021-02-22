@@ -51,4 +51,5 @@ jobs:
           
       - name: Publish docker image
         run: |
+          git_branch=${GITHUB_REF#refs/heads/}
           docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}
