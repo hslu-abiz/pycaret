@@ -49,6 +49,13 @@ jobs:
           git_branch=${GITHUB_REF#refs/heads/}
           docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch} .
           
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+      
       - name: Publish docker image
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
