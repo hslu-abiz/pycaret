@@ -52,4 +52,6 @@ jobs:
       - name: Publish docker image
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
+          export CR_PAT=20faf4365ef992932db81451fcc46edcc9186e9c
+          echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
           docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}
