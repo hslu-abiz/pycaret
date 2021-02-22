@@ -51,7 +51,7 @@ jobs:
       
       - name: Login to docker.pkg.github.com
         run: |
-          docker login https://docker.pkg.github.com -u andrinbuerli --password ed164e309990c9b8089fa43cd582ccdeadc17366 
+          echo "${{ github.token }}" | docker login https://docker.pkg.github.com -u ${GITHUB_ACTOR} --password-stdin
           
       - name: Publish docker image
         run: |
