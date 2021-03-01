@@ -52,9 +52,9 @@ jobs:
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
           echo "${git_branch}"
-          tag=`echo "$git_branch" | grep -o "[0-9.]\+"`
+          tag=`echo "${git_branch}" | grep -o "[0-9.]\+"`
           echo "${tag}"
-          tag=`if ["$tag" == ""]; then echo "latest"; else echo "$var"; fi
+          tag=`if ["${tag}" == ""]; then echo "latest"; else echo "${tag}"; fi
           echo "${tag}"
           docker build -t docker.pkg.github.com/hslu-abiz/pycaret/master:${tag} .
           docker push docker.pkg.github.com/hslu-abiz/pycaret/master:${tag}
