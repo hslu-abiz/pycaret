@@ -52,7 +52,7 @@ jobs:
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
           echo "${git_branch}"
-          tag=$(echo "${git_branch}" | grep -o "[0-9.]\+")
+          tag=$(echo "${git_branch}" | grep -o "[0-9.]\+")|| exit $?
           echo "${tag}"
           tag=`if ["${tag}" == ""]; then echo "latest"; else echo "${tag}"; fi
           echo "${tag}"
