@@ -49,5 +49,5 @@ jobs:
       - name: Create and publish docker image
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
-          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch} .
-          docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}
+          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:latest .
+          docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:latest
