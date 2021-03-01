@@ -51,5 +51,7 @@ jobs:
       - name: Create and publish docker image
         run: |
           git_branch=${GITHUB_REF#refs/heads/}
-          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:latest .
-          docker push docker.pkg.github.com/hslu-abiz/pycaret/${git_branch}:latest
+          tag=`echo "$git_branch" | grep -o "[0-9.]\+"`
+          tag=`if ["$tag" == ""]; then echo "latest"; else echo "$var"; fi
+          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/master:${tag} .
+          docker push docker.pkg.github.com/hslu-abiz/pycaret/master:${tag}
