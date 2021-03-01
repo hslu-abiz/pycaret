@@ -12,9 +12,6 @@ on:
   pull_request:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -54,5 +51,5 @@ jobs:
           echo "working on branch ${git_branch}"
           tag=$(if [[ $(echo "${git_branch}" | grep -c "[0-9.]\+") > 0  ]]; then echo "${git_branch}" | grep -o "[0-9.]\+"; else echo "latest"; fi)
           echo "creating image with tag ${tag}"
-          docker build -t docker.pkg.github.com/hslu-abiz/pycaret:${tag} .
-          docker push docker.pkg.github.com/hslu-abiz/pycaret:${tag}
+          docker build -t docker.pkg.github.com/hslu-abiz/pycaret/pycaret:${tag} .
+          docker push docker.pkg.github.com/hslu-abiz/pycaret/pycaret:${tag}
